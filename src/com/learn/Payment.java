@@ -1,8 +1,6 @@
 package com.learn;
 
-import java.util.Scanner;
-
-public class Payment implements IPay{
+public class Payment implements IPay {
     public static final int MAX_BOOK = 100;
     private Book[] books;
     private int bookAmount;
@@ -14,7 +12,6 @@ public class Payment implements IPay{
         return books;
     }
 
-
     @Override
     public void buy(int index) {
         Book book = books[index];
@@ -24,21 +21,13 @@ public class Payment implements IPay{
             System.out.println("Congratulation");
             book.setQuantity(book.getQuantity() - 1);
         }
-
-
     }
-
-
-
-
 
     @Override
     public void showBook() {
         for (int i = 0; i < bookAmount; i++ ){
             books[i].printInfo();
-
         }
-
     }
 
     @Override
@@ -48,15 +37,18 @@ public class Payment implements IPay{
 
     }
 
-    public void buy(String next) {
-        Book book = books[Integer.parseInt(next)];
-        if (book.getQuantity() == 0){
-            System.out.println("you can't buy");
-        }else {
-            System.out.println("Congratulation");
-            book.setQuantity(book.getQuantity() - 1);
+    public void buy(String bookName) {
+        for (int i = 0; i < bookAmount; i++) {
+            Book book = books[i];
+            if (bookName.equals(book.getName())) {
+                if (book.getQuantity() == 0){
+                    System.out.println("you can't buy");
+                } else {
+                    System.out.println("Congratulation");
+                    book.setQuantity(book.getQuantity() - 1);
+                }
+                return;
+            }
         }
-
-
     }
 }

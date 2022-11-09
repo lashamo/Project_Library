@@ -32,27 +32,22 @@ public class Run {
                         System.out.println("Books name");
                         String name = scanner.next();
                         System.out.println("possible values:" + Arrays.toString(BookType.values()));
-                        String bookType1 = scanner.next();
+                        String bookTypeString = scanner.next();
+                        BookType bookType = BookType.valueOf(bookTypeString);
                         System.out.println("Please enter quantity");
                         int quantity = scanner.nextInt();
                         System.out.println("Price sold");
                         int price = scanner.nextInt();
                         System.out.println("Price rent");
                         int priceRent = scanner.nextInt();
-                        Book book1 = new Book( name, bookType1, quantity, price, priceRent);
+                        Book book1 = new Book(bookType, name, quantity);
                         payment.addBook(book1);
-
                     }
-
                 }
-
-
-
-            }if (mode == 2){
-                Payment payment1 = new Payment();
+            } if (mode == 2) {
                 System.out.println("You need buy or rent");
-                System.out.println("please press 1 if you want to pay operation for buy ");
-                System.out.println("please press if you want to pay operation for rent ");
+                System.out.println("please press 1 if you want to pay operation for buy");
+                System.out.println("please press 2 if you want to pay operation for rent");
                 int press = scanner.nextInt();
 
                 if (press == 1){

@@ -2,13 +2,10 @@ package com.learn;
 
 public class Book {
 
-
     private BookType type;
     private String name;
-
     private int quantity;
 
-    public Book(String name, String bookType1, int price, int priceRent, int rent){}
     public Book(BookType type, String name, int quantity){
         this.type=type;
         this.name=name;
@@ -50,6 +47,4 @@ public class Book {
     public void printInfo(){
         System.out.println("About Book :"+ type + " " + name + " " + quantity);
     }
-
-
 }
